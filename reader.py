@@ -47,8 +47,6 @@ if sprawdz_argumenty(sys.argv):
         plik_wejsciowy = ObslugaPKL(sciezka_in, sciezka_out, modyfikacje)
     elif sciezka_in.endswith(".json"):
         plik_wejsciowy = ObslugaJSON(sciezka_in, sciezka_out, modyfikacje)
-    else:
-        print(f"!!! Błędny format pliku wejściowego: {sciezka_in}. Obsługiwane formaty: .csv, .txt, .json, .pkl\n")
 
     # tworzymy obiekt plik_wyjsciowy w zależności od podanego rozszerzenia
     if sciezka_out.endswith(".csv"):
@@ -59,8 +57,6 @@ if sprawdz_argumenty(sys.argv):
         plik_wyjsciowy = ObslugaPKL(sciezka_in, sciezka_out, modyfikacje)
     elif sciezka_out.endswith(".json"):
         plik_wyjsciowy = ObslugaJSON(sciezka_in, sciezka_out, modyfikacje)
-    else:
-        print(f"!!! Błędny format pliku wyjściowego: {sciezka_out}. Obsługiwane formaty: .csv, .txt, .json, .pkl\n")
 
     # wczytujemy dane
     dane = plik_wejsciowy.wczytaj_dane()

@@ -18,6 +18,21 @@ def sprawdz_argumenty(argumenty):
          print(f"\nPodany plik wejściowy: '{argumenty[1]}' nie istnieje!\n")
          return False
 
+    # sprawdzam czy podany plik wejściowy ma zawartość
+    elif os.path.getsize(argumenty[1]) == 0:
+        print(f"\nPodany plik wejściowy: '{argumenty[1]}' jest pusty!\n")
+        return False
+
+    # sprawdzamy rozszerzenie pliku wejściowego
+    elif not argumenty[1].lower().endswith((".csv", ".txt", ".pkl", ".json")):
+        print(f"\nBłędny format pliku wejściowego: '{argumenty[1]}'. Obsługiwane formaty: .csv, .txt, .json, .pkl\n")
+        return False
+
+    # sprawdzamy rozszerzenie pliku wyjściowego
+    elif not argumenty[2].lower().endswith((".csv", ".txt", ".pkl", ".json")):
+        print(f"\nBłędny format pliku wyjściowego: '{argumenty[2]}'. Obsługiwane formaty: .csv, .txt, .json, .pkl\n")
+        return False
+
     # kiedy wpisane argumenty są prawidłowe
     else:
         print(f"""
